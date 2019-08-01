@@ -7,7 +7,8 @@
 目录
 
 ## 1 ECMAScript-V8
-### 1.1 [Memory Heap(内存堆)](./1.1 MemoryHeap.md)
+### 1.1 Memory Heap/Stack(内存堆/栈)
+[查看详细内容>>](](./1.1 MemoryHeap.md))
 
 #### 1.1.1 基本数据类型
 
@@ -199,7 +200,7 @@ Math.round('123a.456');
 
 ### 2.8 Error
 
-### 2.9 
+
 
 ## 3 内置方法/对象
 ### 3.1 内置方法
