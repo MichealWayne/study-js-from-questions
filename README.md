@@ -8,7 +8,7 @@
 
 ## 1 ECMAScript-V8
 ### 1.1 Memory Heap/Stack(内存堆/栈)
-[查看详细内容>>](](./1.1 MemoryHeap.md))
+[查看详细内容 1.1 MemoryHeap.md>>](./1.1 MemoryHeap.md))
 
 #### 1.1.1 基本数据类型
 
@@ -73,7 +73,7 @@ var numstr1 = 6.6.toFixed(2);
 var numstr2 = 6.toFixed(2);
 ```
 
-- Q2.`2.55.toFixed(2) === '2.56'`的判断输出是什么
+### Q2.`2.55.toFixed(1) === '2.6'`的判断输出是什么
 
 - Q3.说出以下转换数字数值转换的结果：
 ``` js
@@ -100,7 +100,20 @@ Math.round('123a.456');
 
 - Q4.`parseInt()`/`parseFloat()`/`Number()`/`Math.round()`做数值转换时的效率排行顺序，可以的话解释下原因并说明相关应用场景。
 
+- Q5.介绍一下`Number.prototype.toFixed()`和`Number.prototype.toPrecision()`的应用场景
+
 #### 1.1.4 动态语言和Duck typing
+
+- Q1.以下双等判断的返回值是什么？
+``` js
+console.log([] == ![]);
+console.log([] == '');
+console.log('123.000000000000000000000000001' == 123);
+console.log(false == []);
+console.log(false == 0);
+console.log(false == null);
+console.log(Symbol('a') == false);
+```
 
 
 #### 1.1.5 赋值和变量提升
