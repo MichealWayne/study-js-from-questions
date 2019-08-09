@@ -2,13 +2,14 @@
 
 ![js.png](http://blog.michealwayne.cn/images/icons/js.png)
 
-- 2019.08.02：1.1.1~1.1.5
+- 2019.08.02：1.1.1~1.1.2
+- 2019.08.09：1.1.3~1.1.4
 
 目录
 
 ## 1 ECMAScript-V8
 ### 1.1 Memory Heap/Stack(内存堆/栈)
-[查看详细内容 1.1 MemoryHeap.md>>](./1.1 MemoryHeap.md))
+[查看详细内容 1.1 MemoryHeap.md>>](./1.1 MemoryHeap.md)
 
 #### 1.1.1 基本数据类型
 
@@ -66,6 +67,7 @@ because it's unreadable.";
 - Q3.`console.log(Date.length, Function.length, Array.length, Object.length)`的输出是什么？
 
 
+
 #### 1.1.3 类型转换与相等比较
 - Q1.以下语句会报错吗？如果报错如何最简单进行调整？
 ``` js
@@ -80,6 +82,7 @@ var numstr2 = 6.toFixed(2);
 // parseInt
 parseInt('123.456.789');
 parseInt('123abc');
+parseInt('abc123');
 parseInt(123.456, 36);
 parseInt(123.456, 2);
 parseInt(123.456, 1);
@@ -102,9 +105,7 @@ Math.round('123a.456');
 
 - Q5.介绍一下`Number.prototype.toFixed()`和`Number.prototype.toPrecision()`的应用场景
 
-#### 1.1.4 动态语言和Duck typing
-
-- Q1.以下双等判断的返回值是什么？
+- Q6.以下双等判断的返回值是什么？
 ``` js
 console.log([] == ![]);
 console.log([] == '');
@@ -115,6 +116,32 @@ console.log(false == null);
 console.log(Symbol('a') == false);
 ```
 
+
+#### 1.1.4 动态语言和Duck typing
+
+- Q1.请描述以下加法计算结果
+``` js
+1 + null;
+1 + '2';
+null + false;
+false + undefined;
+true + false;
+[] + [];
+{} + {};
+{} + [];
+[] + {};
+{} + true;
+[] + true;
+'' + Symbol();
+```
+
+- Q2.`let a = [1];`，如何在不删除/增加数组项的情况下使`a == 'abc'`以及`a++ > 456`同时成立？
+
+- Q3.有一个对象obj，`var obj = { 0: 1, 1: 2, 2: 3, length: 3}`，如何给它赋予数组的所有方法，如map、reduce、filter等等等等。
+
+- Q4.请试着解释为什么解构字符串会返回数组，如`var str = 'abc'; ...str` -> `['a', 'b', 'c']`。为什么直接执行会报错，如`...'abc'`？
+
+- Q5.直接修改引用类型的`valueOf()`方法或`toString()`方法会有什么后果？举例说明
 
 #### 1.1.5 赋值和变量提升
 
