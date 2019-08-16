@@ -9,7 +9,7 @@
 
 ## 1 ECMAScript-V8
 ### 1.1 Memory Heap/Stack(内存堆/栈)
-[查看详细内容 1.1 MemoryHeap.md>>](./1.1 MemoryHeap.md)
+[查看详细内容 1.1 MemoryHeap.md>>](1.1%20MemoryHeap.md)
 
 #### 1.1.1 基本数据类型
 
@@ -144,6 +144,19 @@ true + false;
 - Q5.直接修改引用类型的`valueOf()`方法或`toString()`方法会有什么后果？举例说明
 
 #### 1.1.5 赋值和变量提升
+- Q1.以下赋值操作会有问题吗？为什么
+``` js
+// 操作1
+Object.defineProperty(window, 'test', {
+	writable: true,
+	value: 123
+})
+let test = 456;
+
+// 操作2
+window.test2 = 'abc';
+let test2 = 'def';
+```
 
 #### 1.1.6 执行上下文
 
