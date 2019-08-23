@@ -4,6 +4,7 @@
 
 - 2019.08.02：1.1.1~1.1.2
 - 2019.08.09：1.1.3~1.1.4
+- 2019.08.23: 1.1.5~1.1.8
 
 目录
 
@@ -139,12 +140,55 @@ true + false;
 
 - Q3.有一个对象obj，`var obj = { 0: 1, 1: 2, 2: 3, length: 3}`，如何给它赋予数组的所有方法，如map、reduce、filter等等等等。
 
-- Q4.请试着解释为什么解构字符串会返回数组，如`var str = 'abc'; ...str` -> `['a', 'b', 'c']`。为什么直接执行会报错，如`...'abc'`？
+- Q4.请试着解释为什么解构字符串会返回数组，如`[...'abc']` -> `['a', 'b', 'c']`。
 
 - Q5.直接修改引用类型的`valueOf()`方法或`toString()`方法会有什么后果？举例说明
 
 #### 1.1.5 赋值和变量提升
-- Q1.以下赋值操作会有问题吗？为什么
+- Q1.简单描述let/const与var变量赋值的区别
+
+- Q2.以下代码执行的输出结果分别是什么？
+``` js
+console.log(a);
+var a = 1;
+```
+
+``` js
+console.log(a);
+let a = 1;
+```
+
+``` js
+console.log(a);
+function a () { return 1 }
+```
+
+``` js
+console.log(a);
+var a = () => 1;
+```
+
+``` js
+var a = 1;
+console.log(a);
+console.log(window.a);
+
+window.a = 2;
+console.log(a);
+console.log(window.a)
+```
+
+``` js
+let a = 1;
+console.log(a);
+console.log(window.a);
+
+window.a = 2;
+console.log(a);
+console.log(window.a);
+```
+
+- Q3.以下赋值操作会有问题吗？为什么
 ``` js
 // 操作1
 Object.defineProperty(window, 'test', {
@@ -158,11 +202,106 @@ window.test2 = 'abc';
 let test2 = 'def';
 ```
 
+
 #### 1.1.6 执行上下文
+- Q1.大致描述以下代码的执行顺序
+``` js
+function a () { console.log('a') }
+function b () { console.log('b'); a(); }
+function c () { console.log('c'); b(); }
+c();
+```
+
+``` js
+function a () { console.log('a') }
+function b () { console.log('b') }
+function c () { console.log('c'); new Promise((resolve) => resolve()).then(b); a(); }
+c();
+```
+
 
 #### 1.1.7 作用域和作用域链
+- Q1.以下代码执行的输出结果分别是什么？
+
+``` js
+(function (num) {
+    console.log(num);
+    var num = 20;
+    console.log(num);
+    function num() {}
+    console.log(num);
+})(10);
+```
+
+``` js
+function a(b) {
+    console.log(b);
+  	var b = function () {
+        console.log(b)
+    }
+    b();
+}
+a(1)
+```
+
+``` js
+function test() {
+    var n = 10;
+  	function add() {
+        n++;
+      	console.log(n);
+    }
+  	return {
+        n: n,
+      	add: add
+    }
+}
+
+var result = test();
+result.add();
+result.add();
+console.log(result.n)
+```
+
+- Q2.`try...catch`的作用域有何特殊性？如何优化以及有何作用？
+
+- Q3.针对作用域链我们可以做到哪些性能优化？
+
 
 #### 1.1.8 闭包和IIFE
+### Q1.以下代码执行的输出结果分别是什么？
+``` js
+const name = "gobal";
+const object = {
+  name : "object",
+  getName: function(){
+    return function(){
+      return this.name;
+    };
+  }
+};
+object .getName()();
+```
+
+### Q2.经典的问题，以下最终点击会输出什么？如何改进
+``` js
+var items = document.querySelectorAll('li');
+for(var i=0;i<items.length;i++){
+    items[i].onclick = function(){
+        alert(i)
+    }
+}
+```
+
+``` js
+for (var i = 0; i < 6; i++) {
+	setTimeout(function () {
+		console.log(i)
+	}, 1000);
+}
+```
+
+- Q3.常见IIFE有哪些作用、应用场景
 
 #### 1.1.9 浅拷贝、深拷贝
 
