@@ -5,6 +5,7 @@
 - 2019.08.02：1.1.1~1.1.2
 - 2019.08.09：1.1.3~1.1.4
 - 2019.08.23: 1.1.5~1.1.8
+- 2019.08.30: 1.1.9~1.1.10
 
 目录
 
@@ -190,15 +191,20 @@ console.log(window.a);
 
 - Q3.以下赋值操作会有问题吗？为什么
 ``` js
+``` js
 // 操作1
 Object.defineProperty(window, 'test', {
 	writable: true,
 	value: 123
-})
-let test = 456;
-
+});
 // 操作2
+let test = 456;
+```
+
+``` js
+// 操作1
 window.test2 = 'abc';
+// 操作2
 let test2 = 'def';
 ```
 
@@ -419,6 +425,8 @@ for (var i = 0; i < 6; i++) {
 ## 6 Webkit
 
 ## 7 Babel
+
+## 8 Web安全
 
 -----------
 
