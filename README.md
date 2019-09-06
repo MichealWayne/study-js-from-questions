@@ -251,22 +251,15 @@ a(1)
 ```
 
 ``` js
-function test() {
-    var n = 10;
-  	function add() {
-        n++;
-      	console.log(n);
+var name = 'World!';
+(function () {
+    if (typeof name === 'undefined') {
+      var name = 'Jack';
+      console.log('Goodbye ' + name);
+    } else {
+      console.log('Hello ' + name);
     }
-  	return {
-        n: n,
-      	add: add
-    }
-}
-
-var result = test();
-result.add();
-result.add();
-console.log(result.n)
+})();
 ```
 
 - Q2.`try...catch`的作用域有何特殊性？如何优化以及有何作用？
@@ -277,8 +270,8 @@ console.log(result.n)
 #### 1.1.8 闭包和IIFE
 ### Q1.以下代码执行的输出结果分别是什么？
 ``` js
-const name = "gobal";
-const object = {
+var name = "gobal";
+var object = {
   name : "object",
   getName: function(){
     return function(){
@@ -286,7 +279,7 @@ const object = {
     };
   }
 };
-object .getName()();
+object.getName()();
 ```
 
 ### Q2.经典的问题，以下最终点击会输出什么？如何改进
