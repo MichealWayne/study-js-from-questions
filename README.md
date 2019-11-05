@@ -2,11 +2,9 @@
 
 ![js.png](http://blog.michealwayne.cn/images/icons/js.png)
 
-- 2019.08.02：1.1.1~1.1.2
-- 2019.08.09：1.1.3~1.1.4
-- 2019.08.23: 1.1.5~1.1.8
-- 2019.08.30: 1.1.9~1.1.10
-- 2019.09.30: 1.2.1~1.2.2
+- 2019.08: 1.1.x
+- 2019.09: 1.2.x
+- 2019.10: 2.1.x
 
 目录
 
@@ -336,17 +334,73 @@ for (var i = 0; i < 6; i++) {
 - Q2.什么是尾递归？它的作用是什么？能否举个例子
 
 #### 1.2.3 异步与回调
+- Q1.js实现异步的方式和场景有哪些？
+
+- Q2.什么是回调，你知道回调地狱么？如何解决回调地狱的问题
+
+-  Q3.你知道Promise吗？那await/async呢？那generator函数呢？有了解过它们babel转为ES5后是啥样的么
+
 
 #### 1.2.4 消息队列
 
+- Q1.浏览器环境下的消息队列和nodejs环境下的消息队列有了解过吗？它们的区别是什么
+
+- Q2.什么是宏任务？什么是微任务
+
+
 #### 1.2.5 事件循环
+
+
+- Q1.下面的执行代码依次输出什么？
+``` html
+<body>
+<script>
+console.log('a1');
+setTimeout(function () {
+	console.log('a2')
+}, 0);
+new Promise((resolve) => {
+	console.log('a3');
+	setTimeout(function () {
+		console.log('a4')
+	}, 0)
+}).then(() => {
+	console.log('a5')
+});
+console.log('a6');
+</script>
+
+<script>
+console.log('b1');
+setTimeout(function () {
+	console.log('b2')
+}, 0);
+new Promise((resolve) => {
+	console.log('b3');
+	setTimeout(function () {
+		console.log('b4')
+	}, 0)
+}).then(() => {
+	console.log('b5')
+});
+console.log('b6');
+</script>
+</body>
+```
+
+- Q2.简单描述下事件循环的机制，浏览器环境与nodejs环境下的事件循环有区别吗？
+
 
 #### 1.2.6 Memoization
 
+- Q1.Memoization是什么？
+
+- Q2.Memoization的应用场景是什么？
 
 ## 2 语法
 ### 2.1 操作符
 
+[查看详细内容 1.2 Operators.md>>](2.1%20Operators.md)
 
 #### 2.1.1 算数操作符和赋值操作符
 
