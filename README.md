@@ -325,7 +325,7 @@ for (var i = 0; i < 6; i++) {
 #### 1.2.1 调用堆栈
 - Q1.堆和栈的区别？js的调用堆栈指得是什么
 
-- Q2.调用堆栈是否有限制，如果有，具体限制是什么？
+- Q2.调用堆栈是否有限制，如果有，具体限制是什么？如何避免呢
 
 
 #### 1.2.2 递归和尾递归
@@ -343,7 +343,8 @@ for (var i = 0; i < 6; i++) {
 
 #### 1.2.4 消息队列
 
-- Q1.浏览器环境下的消息队列和nodejs环境下的消息队列有了解过吗？它们的区别是什么
+- Q1.js中的消息队列是怎么样的？
+
 
 - Q2.什么是宏任务？什么是微任务
 
@@ -363,7 +364,8 @@ new Promise((resolve) => {
 	console.log('a3');
 	setTimeout(function () {
 		console.log('a4')
-	}, 0)
+	}, 0);
+	resolve();
 }).then(() => {
 	console.log('a5')
 });
@@ -379,7 +381,8 @@ new Promise((resolve) => {
 	console.log('b3');
 	setTimeout(function () {
 		console.log('b4')
-	}, 0)
+	}, 0);
+	resolve();
 }).then(() => {
 	console.log('b5')
 });
@@ -400,7 +403,7 @@ console.log('b6');
 ## 2 语法
 ### 2.1 操作符
 
-[查看详细内容 1.2 Operators.md>>](2.1%20Operators.md)
+[查看详细内容 2.1 Operators.md>>](2.1%20Operators.md)
 
 #### 2.1.1 算数操作符和赋值操作符
 
